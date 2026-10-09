@@ -1,52 +1,27 @@
 import { useState, useEffect } from "react";
 import { TALLY_FORMS } from "../lib/tally.js";
+import TallyEmbed from "../components/TallyEmbed.jsx"; // Adjust path if necessary
 import { ChevronDown as ChevronDownIcon, ChevronUp as ChevronUpIcon, Link as InstagramIcon, Mail as MailIcon, MapPin as MapPinIcon, Phone as PhoneIcon } from "lucide-react";
 
+const CIA_SUMMARY = `By submitting this form, you acknowledge that:
+
+- Jane Verbatim LLC will contact you to schedule a strategy session. No payment is required at this stage.
+
+- If you proceed to engage Jane Verbatim LLC's services, you will be asked to sign a full Consulting & Independent Agreement (CIA) before work begins. That agreement covers scope of work, payment terms, confidentiality, intellectual property, and governing law (State of New York, Kings County).
+
+- Any information you share in this form is kept confidential and used solely to prepare for your consultation.
+
+- Jane Verbatim LLC operates as an independent for-profit consulting firm. The firm does not provide legal, accounting, or financial advice and recommends seeking licensed professionals for those needs.`;
+
 export default function Contact() {
-  // <--- Add this block right here:
+  const [showCIA, setShowCIA] = useState(false);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://tally.so/widgets/embed.js";
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  const [showCIA, setShowCIA] = useState(false);
-
-  return (
-    <div className="contact-page-container">
-      {/* Your existing navigation and header code */}
-
-      <div className="form-wrapper">
-        <h2>Book Your Consultation</h2>
-        
-        {/* Replace the placeholder text with a standard iframe embed */}
-        <iframe 
-          src="https://tally.so/embed/BzO49Q?alignLeft=1&hideTitle=1&transparentBackground=1" 
-          width="100%" 
-          height="1566" 
-          frameBorder="0" 
-          marginHeight="0" 
-          marginWidth="0" 
-          title="Client Discovery Intake Form"
-        ></iframe>
-      </div>
-
-      {/* Your direct contact info sidebar and footer */}
-    </div>
-  );
-}
-const CIA_SUMMARY = `By submitting this form, you acknowledge that:
-
-• Jane Verbatim LLC will contact you to schedule a strategy session. No payment is required at this stage.
-
-• If you proceed to engage Jane Verbatim LLC's services, you will be asked to sign a full Consulting & Independent Agreement (CIA) before work begins. That agreement covers scope of work, payment terms, confidentiality, intellectual property, and governing law (State of New York, Kings County).
-
-• Any information you share in this form is kept confidential and used solely to prepare for your consultation.
-
-• Jane Verbatim LLC operates as an independent for-profit consulting firm. The firm does not provide legal, accounting, or financial advice and recommends seeking licensed professionals for those needs.`;
-
-export default function Contact() {
-  const [showCIA, setShowCIA] = useState(false);
 
   return (
     <div className="bg-cream min-h-screen pt-20">
@@ -101,10 +76,12 @@ export default function Contact() {
                   </div>
                 )}
               </div>
+              
               <TallyEmbed formId={TALLY_FORMS.contact} title="Strategy session intake form" />
-                <p className="text-charcoal/30 font-body text-xs">
-                  We respond to every inquiry within one business day.
-                </p>
+              
+              <p className="text-charcoal/30 font-body text-xs">
+                We respond to every inquiry within one business day.
+              </p>
             </div>
           </div>
 
