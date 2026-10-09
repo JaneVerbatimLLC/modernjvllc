@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TALLY_FORMS } from "../lib/tally.js";
 import { ChevronDown as ChevronDownIcon, ChevronUp as ChevronUpIcon, Link as InstagramIcon, Mail as MailIcon, MapPin as MapPinIcon, Phone as PhoneIcon } from "lucide-react";
+
 export default function Contact() {
+  // <--- Add this block right here:
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://tally.so/widgets/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   const [showCIA, setShowCIA] = useState(false);
 
   return (
