@@ -1,8 +1,32 @@
 import { useState } from "react";
-import TallyEmbed from "../components/TallyEmbed.jsx";
 import { TALLY_FORMS } from "../lib/tally.js";
 import { ChevronDown as ChevronDownIcon, ChevronUp as ChevronUpIcon, Link as InstagramIcon, Mail as MailIcon, MapPin as MapPinIcon, Phone as PhoneIcon } from "lucide-react";
+export default function Contact() {
+  const [showCIA, setShowCIA] = useState(false);
 
+  return (
+    <div className="contact-page-container">
+      {/* Your existing navigation and header code */}
+
+      <div className="form-wrapper">
+        <h2>Book Your Consultation</h2>
+        
+        {/* Replace the placeholder text with a standard iframe embed */}
+        <iframe 
+          src="https://tally.so/embed/BzO49Q?alignLeft=1&hideTitle=1&transparentBackground=1" 
+          width="100%" 
+          height="1566" 
+          frameBorder="0" 
+          marginHeight="0" 
+          marginWidth="0" 
+          title="Client Discovery Intake Form"
+        ></iframe>
+      </div>
+
+      {/* Your direct contact info sidebar and footer */}
+    </div>
+  );
+}
 const CIA_SUMMARY = `By submitting this form, you acknowledge that:
 
 • Jane Verbatim LLC will contact you to schedule a strategy session. No payment is required at this stage.
