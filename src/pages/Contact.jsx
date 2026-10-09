@@ -77,6 +77,46 @@ export default function Contact() {
                 )}
               </div>
               
+              {/* ---> INSERT YOUR TALLY IFRAME HERE <--- */}
+              <div className="form-wrapper">
+                <iframe 
+                  src="https://tally.so/embed/Bz049Q?alignLeft=1&hideTitle=1&transparentBackground=1" 
+                  width="100%" 
+                  height="1566" 
+                  frameBorder="0" 
+                  marginHeight="0" 
+                  marginWidth="0" 
+                  title="Client Discovery Intake Form"
+                ></iframe>
+              </div>
+              
+              <p className="text-charcoal/30 font-body text-xs">
+                We respond to every inquiry within one business day.
+              </p>
+            </div>
+          </div>
+          {/* ── Form ── */}
+          <div className="lg:col-span-3">
+            <div className="space-y-6">
+              {/* CIA Agreement acknowledgment */}
+              <div className="border-2 border-charcoal/20">
+                <button
+                  type="button"
+                  onClick={() => setShowCIA(s => !s)}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-charcoal/3 transition-colors"
+                >
+                  <span className="font-body text-xs font-bold text-charcoal/50 uppercase tracking-widest">
+                    Consulting Agreement Summary
+                  </span>
+                  {showCIA ? <ChevronUpIcon className="w-4 h-4 text-charcoal/40" /> : <ChevronDownIcon className="w-4 h-4 text-charcoal/40" />}
+                </button>
+                {showCIA && (
+                  <div className="px-4 pb-4 border-t border-charcoal/10">
+                    <pre className="font-body text-xs text-charcoal/60 leading-relaxed whitespace-pre-wrap mt-3">{CIA_SUMMARY}</pre>
+                  </div>
+                )}
+              </div>
+              
               <TallyEmbed formId={TALLY_FORMS.contact} title="Strategy session intake form" />
               
               <p className="text-charcoal/30 font-body text-xs">
