@@ -78,16 +78,15 @@ export default function Contact() {
               </div>
               
               {/* ---> INSERT YOUR TALLY IFRAME HERE <--- */}
-              <div className="form-wrapper">
-  <iframe 
-    src="https://tally.so/embed/Bz049Q?alignLeft=1&hideTitle=1&transparentBackground=1" 
-    width="100%" 
-    height="1566" 
-    frameBorder="0" 
-    marginHeight="0" 
-    marginWidth="0" 
+<div className="form-wrapper">
+  <iframe
+    data-tally-src="https://tally.so/embed/BzO49Q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    loading="lazy"
+    width="100%"
+    height="1566"
+    style={{ border: 0, margin: 0 }}
     title="Client Discovery Intake Form"
-  ></iframe>
+  />
 </div>
               
               <p className="text-charcoal/30 font-body text-xs">
