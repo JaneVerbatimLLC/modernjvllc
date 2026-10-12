@@ -113,11 +113,6 @@ export default function Contact() {
                 )}
               </div>
               
-              <TallyEmbed formId={TALLY_FORMS.contact} title="Strategy session intake form" />
-              
-              <p className="text-charcoal/30 font-body text-xs">
-                We respond to every inquiry within one business day.
-              </p>
             </div>
           </div>
 
