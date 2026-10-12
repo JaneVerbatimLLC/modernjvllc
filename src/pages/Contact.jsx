@@ -89,9 +89,6 @@ export default function Contact() {
   />
 </div>
               
-              <p className="text-charcoal/30 font-body text-xs">
-                We respond to every inquiry within one business day.
-              </p>
             </div>
           </div>
           {/* ── Form ── */}
