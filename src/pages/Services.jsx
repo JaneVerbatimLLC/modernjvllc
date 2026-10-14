@@ -8,15 +8,9 @@ const services = [
     num: "01",
     id: "architecture",
     title: "Business Architecture & Formation",
-    tagline: "The structural foundation every serious business needs.",
-    items: [
-      "Entity setup — LLC, DBA, and corporate structure guidance",
-      "EIN acquisition and registration support",
-      "Investor-ready business plan development",
-      "Operations and logistics audits",
-      "Funding strategy roadmaps and grant identification",
-      "Business systems documentation",
-    ],
+    tagline: "For founders who don't have an LLC yet — or don't have a plan to get funded.",
+    items: ["LLC/DBA setup & EIN", "Investor-ready business plan", "Funding & grant roadmap"],
+    outcome: "You get: a legally formed, fundable business.",
   },
   {
     icon: AwardIcon,
@@ -24,15 +18,9 @@ const services = [
     num: "02",
     id: "certifications",
     title: "Certifications & Equity Access",
-    tagline: "The credentials that open doors and unlock capital.",
-    items: [
-      "MWBE certification application and guidance",
-      "Social Equity Entrepreneur (SEE) designation support",
-      "Cannabis regulatory compliance training",
-      "Grant application readiness assessment",
-      "NYC, NYS, and federal program navigation",
-      "Compliance documentation review",
-    ],
+    tagline: "For founders who qualify for MWBE, SEE, or cannabis equity programs but haven't applied.",
+    items: ["MWBE & SEE certification", "Cannabis compliance", "Grant readiness review"],
+    outcome: "You get: access to the equity programs and capital you qualify for.",
   },
   {
     icon: PaletteIcon,
@@ -40,15 +28,9 @@ const services = [
     num: "03",
     id: "brand",
     title: "Brand Identity & Marketing",
-    tagline: "A brand that commands attention and earns trust.",
-    items: [
-      "Logo design packages and brand marks",
-      "Full brand style guides and visual systems",
-      "Social media launchpad strategy",
-      "90-day content strategy plans",
-      "Copywriting for web and marketing materials",
-      "Digital presence audit and rebuild",
-    ],
+    tagline: "For founders whose business doesn't look as legit as it is.",
+    items: ["Logo & brand style guide", "90-day content plan", "Website & copy"],
+    outcome: "You get: a brand people take seriously, and a plan to launch it.",
   },
   {
     icon: BookOpenIcon,
@@ -56,15 +38,9 @@ const services = [
     num: "04",
     id: "education",
     title: "Education & Professional Development",
-    tagline: "Building the founder behind the business.",
-    items: [
-      "Instructional design for in-house training",
-      "Academic and career path advising",
-      "Workshop facilitation for business fundamentals",
-      "Founder cohort programming",
-      "Financial literacy education",
-      "Leadership and operational mindset coaching",
-    ],
+    tagline: "For founders who built the business but still feel unsure running it.",
+    items: ["Financial literacy", "Workshops & coaching", "Founder cohort programming"],
+    outcome: "You get: the confidence and skills to run what you built.",
   },
 ];
 
@@ -107,7 +83,7 @@ export default function Services() {
       {/* ── Services ── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-24">
         <div className="space-y-6">
-          {services.map(({ icon: Icon, accent, num, id, title, tagline, items }) => (
+          {services.map(({ icon: Icon, accent, num, id, title, tagline, items, outcome }) => (
             <div
               key={id}
               className="group border-2 border-charcoal relative overflow-hidden hover:border-transparent transition-all"
@@ -146,15 +122,22 @@ export default function Services() {
                   </div>
 
                   {/* Right */}
-                  <div className="lg:col-span-8">
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5">
+                  <div className="lg:col-span-8 flex flex-col justify-center gap-5">
+                    <div className="flex flex-wrap gap-2">
                       {items.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <CheckIcon className="w-4 h-4 shrink-0 mt-0.5 group-hover:text-cream transition-colors" style={{ color: accent }} />
-                          <span className="text-charcoal/60 font-body text-sm leading-snug group-hover:text-cream/80 transition-colors">{item}</span>
-                        </li>
+                        <span
+                          key={item}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 border-2 text-xs font-body font-semibold text-charcoal/70 group-hover:text-cream group-hover:border-cream transition-colors"
+                          style={{ borderColor: accent }}
+                        >
+                          <CheckIcon className="w-3 h-3 shrink-0" style={{ color: accent }} />
+                          {item}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
+                    <p className="text-charcoal font-body text-sm sm:text-base font-bold group-hover:text-cream transition-colors">
+                      {outcome}
+                    </p>
                   </div>
                 </div>
               </div>
