@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import TallyEmbed from "../components/TallyEmbed.jsx";
 import { TALLY_FORMS } from "../lib/tally.js";
-import TallyEmbed from "../components/TallyEmbed.jsx"; // Adjust path if necessary
 import { ChevronDown as ChevronDownIcon, ChevronUp as ChevronUpIcon, Link as InstagramIcon, Mail as MailIcon, MapPin as MapPinIcon, Phone as PhoneIcon } from "lucide-react";
 
 const CIA_SUMMARY = `By submitting this form, you acknowledge that:
 
-- Jane Verbatim LLC will contact you to schedule a strategy session. No payment is required at this stage.
+• Jane Verbatim LLC will contact you to schedule a strategy session. No payment is required at this stage.
 
-- If you proceed to engage Jane Verbatim LLC's services, you will be asked to sign a full Consulting & Independent Agreement (CIA) before work begins. That agreement covers scope of work, payment terms, confidentiality, intellectual property, and governing law (State of New York, Kings County).
+• If you proceed to engage Jane Verbatim LLC's services, you will be asked to sign a full Consulting & Independent Agreement (CIA) before work begins. That agreement covers scope of work, payment terms, confidentiality, intellectual property, and governing law (State of New York, Kings County).
 
-- Any information you share in this form is kept confidential and used solely to prepare for your consultation.
+• Any information you share in this form is kept confidential and used solely to prepare for your consultation.
 
-- Jane Verbatim LLC operates as an independent for-profit consulting firm. The firm does not provide legal, accounting, or financial advice and recommends seeking licensed professionals for those needs.`;
+• Jane Verbatim LLC operates as an independent for-profit consulting firm. The firm does not provide legal, accounting, or financial advice and recommends seeking licensed professionals for those needs.`;
 
 export default function Contact() {
   const [showCIA, setShowCIA] = useState(false);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://tally.so/widgets/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
 
   return (
     <div className="bg-cream min-h-screen pt-20">
@@ -76,43 +69,10 @@ export default function Contact() {
                   </div>
                 )}
               </div>
-              
-              {/* ---> INSERT YOUR TALLY IFRAME HERE <--- */}
-<div className="form-wrapper">
-  <iframe
-    data-tally-src="https://tally.so/embed/BzO49Q?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-    loading="lazy"
-    width="100%"
-    height="1566"
-    style={{ border: 0, margin: 0 }}
-    title="Client Discovery Intake Form"
-  />
-</div>
-              
-            </div>
-          </div>
-          {/* ── Form ── */}
-          <div className="lg:col-span-3">
-            <div className="space-y-6">
-              {/* CIA Agreement acknowledgment */}
-              <div className="border-2 border-charcoal/20">
-                <button
-                  type="button"
-                  onClick={() => setShowCIA(s => !s)}
-                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-charcoal/3 transition-colors"
-                >
-                  <span className="font-body text-xs font-bold text-charcoal/50 uppercase tracking-widest">
-                    Consulting Agreement Summary
-                  </span>
-                  {showCIA ? <ChevronUpIcon className="w-4 h-4 text-charcoal/40" /> : <ChevronDownIcon className="w-4 h-4 text-charcoal/40" />}
-                </button>
-                {showCIA && (
-                  <div className="px-4 pb-4 border-t border-charcoal/10">
-                    <pre className="font-body text-xs text-charcoal/60 leading-relaxed whitespace-pre-wrap mt-3">{CIA_SUMMARY}</pre>
-                  </div>
-                )}
-              </div>
-              
+              <TallyEmbed formId={TALLY_FORMS.contact} title="Strategy session intake form" />
+                <p className="text-charcoal/30 font-body text-xs">
+                  We respond to every inquiry within one business day.
+                </p>
             </div>
           </div>
 
