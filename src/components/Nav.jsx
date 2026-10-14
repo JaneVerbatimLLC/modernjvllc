@@ -16,7 +16,6 @@ export default function Nav() {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/services", label: "Services" },
-    { to: "/share-your-story", label: "Share Your Story" },
   ];
 
   return (
