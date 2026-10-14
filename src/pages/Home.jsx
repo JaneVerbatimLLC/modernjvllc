@@ -9,7 +9,7 @@ const services = [
     color: "clay",
     num: "01",
     title: "Business Architecture",
-    desc: "Entity formation, EIN guidance, investor-ready business plans, and funding roadmaps tailored for emerging founders.",
+    outcome: "A legally formed, fundable business.",
     hex: "#C4704A",
   },
   {
@@ -17,7 +17,7 @@ const services = [
     color: "sage",
     num: "02",
     title: "Certifications & Compliance",
-    desc: "MWBE and Social Equity Entrepreneur certification guidance, cannabis regulatory compliance, and grant readiness.",
+    outcome: "Access to equity programs and grants.",
     hex: "#4A6741",
   },
   {
@@ -25,7 +25,7 @@ const services = [
     color: "gold",
     num: "03",
     title: "Brand Identity & Marketing",
-    desc: "Logo packages, brand style guides, social media launchpads, and 90-day content strategy plans.",
+    outcome: "A brand people take seriously.",
     hex: "#C9A84C",
   },
   {
@@ -33,7 +33,7 @@ const services = [
     color: "teal",
     num: "04",
     title: "Education & Development",
-    desc: "Instructional design, academic advising, and professional development for founders at every stage.",
+    outcome: "The skills to run what you built.",
     hex: "#5B9EA0",
   },
 ];
@@ -165,12 +165,17 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-16">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-10 sm:mb-14">
+          <div className="flex items-center gap-4 mb-5">
             <div className="w-8 h-0.5 bg-clay" />
             <span className="text-clay font-body text-xs font-bold tracking-[0.25em] uppercase">
               Brooklyn Business Consulting
             </span>
           </div>
+
+          {/* Plain-language line — what we do, who it's for */}
+          <p className="text-charcoal/70 font-body text-sm sm:text-base font-semibold mb-8 sm:mb-10 max-w-lg">
+            We form your business, build your brand, and connect you to funding — one Brooklyn founder at a time.
+          </p>
 
           {/* Headline — bold editorial, charcoal on cream */}
           <div className="mb-10">
@@ -194,8 +199,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start sm:items-end">
             <p className="text-charcoal/60 font-body text-base sm:text-lg leading-relaxed max-w-md">
-              Jane Verbatim LLC helps micro and small business owners across Brooklyn build 
-              the frameworks, brand, and strategy to compete — and win — on their own terms.
+              A 45-minute session. No fluff — just a clear path forward for your business.
             </p>
 
             <div className="flex flex-col gap-3 shrink-0">
@@ -212,6 +216,9 @@ export default function Home() {
               >
                 Our Services
               </Link>
+              <p className="text-charcoal/40 font-body text-xs text-center">
+                Tiered pricing. No financial barriers.
+              </p>
             </div>
           </div>
 
@@ -278,38 +285,29 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {services.map(({ icon: Icon, color, num, title, desc, hex }) => (
-              <div
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {services.map(({ icon: Icon, title, outcome, hex }) => (
+              <Link
+                to="/services"
                 key={title}
-                className="group border-2 border-charcoal p-8 sm:p-10 hover:border-transparent transition-all relative overflow-hidden"
-                style={{ "--hover-bg": hex }}
+                className="group border-2 border-charcoal p-6 hover:border-transparent transition-all relative overflow-hidden"
               >
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ backgroundColor: hex }}
                   aria-hidden
                 />
-                {/* Num watermark */}
-                <span
-                  aria-hidden
-                  className="absolute bottom-4 right-6 font-display text-8xl font-black opacity-[0.07] select-none group-hover:opacity-20 transition-opacity"
-                  style={{ color: hex }}
-                >
-                  {num}
-                </span>
-
                 <div className="relative z-10">
                   <div
-                    className="inline-flex items-center justify-center w-10 h-10 border-2 mb-6 group-hover:border-cream transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 border-2 mb-4 group-hover:border-cream transition-colors"
                     style={{ borderColor: hex }}
                   >
                     <Icon className="w-5 h-5 group-hover:text-cream transition-colors" style={{ color: hex }} />
                   </div>
-                  <h3 className="font-display text-xl sm:text-2xl text-charcoal mb-3 font-bold group-hover:text-cream transition-colors">{title}</h3>
-                  <p className="text-charcoal/55 font-body text-sm leading-relaxed group-hover:text-cream/80 transition-colors">{desc}</p>
+                  <h3 className="font-display text-base sm:text-lg text-charcoal mb-1.5 font-bold group-hover:text-cream transition-colors">{title}</h3>
+                  <p className="text-charcoal/45 font-body text-xs leading-relaxed group-hover:text-cream/70 transition-colors">{outcome}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -339,22 +337,16 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="lg:col-span-8 space-y-0 divide-y-2 divide-charcoal/10">
-              {[
-                { label: "Clarity over chaos", num: "1", sub: "We audit your operations and hand you a roadmap, not a to-do list." },
-                { label: "Identity as infrastructure", num: "2", sub: "Your brand is your most leveraged business asset — we make it work." },
-                { label: "Community as strategy", num: "3", sub: "Local roots aren't a limitation. They're your competitive edge." },
-                { label: "Equity-centered access", num: "4", sub: "Tiered pricing and stackable discounts ensure serious founders get in the door." },
-              ].map(({ label, num, sub }) => (
-                <div key={label} className="flex gap-6 py-7 group">
-                  <span className="font-display text-4xl text-charcoal/10 font-black w-10 shrink-0 group-hover:text-clay/40 transition-colors leading-none mt-1">{num}</span>
-                  <div className="flex-1">
-                    <p className="text-charcoal font-display text-lg font-bold mb-1 group-hover:text-clay transition-colors">{label}</p>
-                    <p className="text-charcoal/45 font-body text-sm leading-relaxed">{sub}</p>
-                  </div>
-                  <CheckIcon className="w-5 h-5 text-clay shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="lg:col-span-8 flex items-center">
+              <div className="space-y-5">
+                <p className="text-charcoal font-display text-xl sm:text-2xl font-bold leading-snug">
+                  Most consultants hand you a to-do list. We hand you a roadmap — then help you build the brand and confidence to run it.
+                </p>
+                <div className="flex items-start gap-3">
+                  <CheckIcon className="w-5 h-5 text-clay shrink-0 mt-0.5" />
+                  <p className="text-charcoal/50 font-body text-sm">Rooted in Brooklyn — your neighborhood is your edge, not a limitation.</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
